@@ -10,6 +10,8 @@
 
     <!--Description-->
     
+        <meta name="description" content="Language TranslationIn this project, you’re going to take a peek into the realm of neural network machine translation.  You’ll be training a sequence ">
+    
 
     <!--Author-->
     
@@ -18,7 +20,7 @@
 
     <!--Open Graph Title-->
     
-        <meta property="og:title" content="MilkSite"/>
+        <meta property="og:title" content="language-translation"/>
     
 
     <!--Open Graph Description-->
@@ -29,7 +31,7 @@
 
     <!--Type page-->
     
-        <meta property="og:type" content="website" />
+        <meta property="og:type" content="article" />
     
 
     <!--Page Cover-->
@@ -40,7 +42,7 @@
 
     <!-- Title -->
     
-    <title>MilkSite</title>
+    <title>language-translation - MilkSite</title>
 
     <!-- Bootstrap Core CSS -->
     <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
@@ -135,17 +137,14 @@
     <div class="logo">
         <a href="/"><i class="logo-icon fa fa-cube" aria-hidden="true"></i></a>
         
-            <h1 id="main-title" class="title">MilkSite</h1>
-        
     </div>
 </header>
 
         <section class="main">
             
-                
 <div class="post">
 
-    <div class="post-header index">
+    <div class="post-header">
         <h1 class="title">
             <a href="/2017/07/05/language-translation/">
                 language-translation
@@ -160,9 +159,13 @@
         </div>
     </div>
 
-    
-        <div class="content">
-            <h1 id="Language-Translation"><a href="#Language-Translation" class="headerlink" title="Language Translation"></a>Language Translation</h1><p>In this project, you’re going to take a peek into the realm of neural network machine translation.  You’ll be training a sequence to sequence model on a dataset of English and French sentences that can translate new sentences from English to French.</p>
+    <div class="content">
+
+        <!-- Gallery -->
+        
+
+        <!-- Post Content -->
+        <h1 id="Language-Translation"><a href="#Language-Translation" class="headerlink" title="Language Translation"></a>Language Translation</h1><p>In this project, you’re going to take a peek into the realm of neural network machine translation.  You’ll be training a sequence to sequence model on a dataset of English and French sentences that can translate new sentences from English to French.</p>
 <h2 id="Get-the-Data"><a href="#Get-the-Data" class="headerlink" title="Get the Data"></a>Get the Data</h2><p>Since translating the whole language of English to French will take lots of time to train, we have provided you with a small portion of the English corpus.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="string">"""</span></div><div class="line">DON'T MODIFY ANYTHING IN THIS CELL</div><div class="line">"""</div><div class="line"><span class="keyword">import</span> helper</div><div class="line"><span class="keyword">import</span> problem_unittests <span class="keyword">as</span> tests</div><div class="line"></div><div class="line">source_path = <span class="string">'data/small_vocab_en'</span></div><div class="line">target_path = <span class="string">'data/small_vocab_fr'</span></div><div class="line">source_text = helper.load_data(source_path)</div><div class="line">target_text = helper.load_data(target_path)</div></pre></td></tr></table></figure>
 <h2 id="Explore-the-Data"><a href="#Explore-the-Data" class="headerlink" title="Explore the Data"></a>Explore the Data</h2><p>Play around with view_sentence_range to view different parts of the data.</p>
@@ -278,95 +281,25 @@
 <p>You can train on the <a href="http://www.statmt.org/wmt10/training-giga-fren.tar" target="_blank" rel="external">WMT10 French-English corpus</a>.  This dataset has more vocabulary and richer in topics discussed.  However, this will take you days to train, so make sure you’ve a GPU and the neural network is performing well on dataset we provided.  Just make sure you play with the WMT10 corpus after you’ve submitted this project.</p>
 <h2 id="Submitting-This-Project"><a href="#Submitting-This-Project" class="headerlink" title="Submitting This Project"></a>Submitting This Project</h2><p>When submitting this project, make sure to run all the cells before saving the notebook. Save the notebook file as “dlnd_language_translation.ipynb” and save it as a HTML file under “File” -&gt; “Download as”. Include the “helper.py” and “problem_unittests.py” files in your submission.</p>
 
-        </div>
-    
-
-</div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2017/06/22/Autoencoder/">
-                Autoencoder
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2017-06-22</span>
-            
-            
-            
-        </div>
     </div>
 
     
-        <div class="content">
-            <h1 id="A-Simple-Autoencoder"><a href="#A-Simple-Autoencoder" class="headerlink" title="A Simple Autoencoder"></a>A Simple Autoencoder</h1><p>We’ll start off by building a simple autoencoder to compress the MNIST dataset. With autoencoders, we pass input data through an encoder that makes a compressed representation of the input. Then, this representation is passed through a decoder to reconstruct the input data. Generally the encoder and decoder will be built with neural networks, then trained on example data.</p>
-<p>In this notebook, we’ll be build a simple network architecture for the encoder and decoder. Let’s get started by importing our libraries and getting the dataset.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">%matplotlib inline</div><div class="line"></div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> tensorflow <span class="keyword">as</span> tf</div><div class="line"><span class="keyword">import</span> matplotlib.pyplot <span class="keyword">as</span> plt</div></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> tensorflow.examples.tutorials.mnist <span class="keyword">import</span> input_data</div><div class="line">mnist = input_data.read_data_sets(<span class="string">'MNIST_data'</span>, validation_size=<span class="number">0</span>)</div></pre></td></tr></table></figure>
-<p>Below I’m plotting an example image from the MNIST dataset. These are 28x28 grayscale images of handwritten digits.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">img = mnist.train.images[<span class="number">2</span>]</div><div class="line">plt.imshow(img.reshape((<span class="number">28</span>, <span class="number">28</span>)), cmap=<span class="string">'Greys_r'</span>)</div></pre></td></tr></table></figure>
-<p>We’ll train an autoencoder with these images by flattening them into 784 length vectors. The images from this dataset are already normalized such that the values are between 0 and 1. Let’s start by building basically the simplest autoencoder with a <strong>single ReLU hidden layer</strong>. This layer will be used as the compressed representation. Then, the encoder is the input layer and the hidden layer. The decoder is the hidden layer and the output layer. Since the images are normalized between 0 and 1, we need to use a <strong>sigmoid activation on the output layer</strong> to get values matching the input.</p>
-<blockquote>
-<p><strong>Exercise:</strong> Build the graph for the autoencoder in the cell below. The input images will be flattened into 784 length vectors. The targets are the same as the inputs. And there should be one hidden layer with a ReLU activation and an output layer with a sigmoid activation. The loss should be calculated with the cross-entropy loss, there is a convenient TensorFlow function for this <code>tf.nn.sigmoid_cross_entropy_with_logits</code> (<a href="https://www.tensorflow.org/api_docs/python/tf/nn/sigmoid_cross_entropy_with_logits" target="_blank" rel="external">documentation</a>). You should note that <code>tf.nn.sigmoid_cross_entropy_with_logits</code> takes the logits, but to get the reconstructed images you’ll need to pass the logits through the sigmoid function.</p>
-</blockquote>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Size of the encoding layer (the hidden layer)</span></div><div class="line">encoding_dim = <span class="number">32</span></div><div class="line"></div><div class="line">image_size = mnist.train.images.shape[<span class="number">1</span>]</div><div class="line"></div><div class="line">inputs_ = tf.placeholder(tf.float32, (<span class="keyword">None</span>, image_size), name=<span class="string">'inputs'</span>)</div><div class="line">targets_ = tf.placeholder(tf.float32, (<span class="keyword">None</span>, image_size), name=<span class="string">'targets'</span>)</div><div class="line"></div><div class="line"><span class="comment"># Output of hidden layer</span></div><div class="line">encoded = tf.layers.dense(inputs_, encoding_dim, activation=tf.nn.relu)</div><div class="line"></div><div class="line"><span class="comment"># Output layer logits</span></div><div class="line">logits = tf.layers.dense(encoded, image_size, activation=<span class="keyword">None</span>)</div><div class="line"><span class="comment"># Sigmoid output from</span></div><div class="line">decoded = tf.nn.sigmoid(logits, name=<span class="string">'output'</span>)</div><div class="line"></div><div class="line">loss = tf.nn.sigmoid_cross_entropy_with_logits(labels=targets_, logits=logits)</div><div class="line">cost = tf.reduce_mean(loss)</div><div class="line">opt = tf.train.AdamOptimizer(<span class="number">0.001</span>).minimize(cost)</div></pre></td></tr></table></figure>
-<h2 id="Training"><a href="#Training" class="headerlink" title="Training"></a>Training</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Create the session</span></div><div class="line">sess = tf.Session()</div></pre></td></tr></table></figure>
-<p>Here I’ll write a bit of code to train the network. I’m not too interested in validation here, so I’ll just monitor the training loss and the test loss afterwards.</p>
-<p>Calling <code>mnist.train.next_batch(batch_size)</code> will return a tuple of <code>(images, labels)</code>. We’re not concerned with the labels here, we just need the images. Otherwise this is pretty straightfoward training with TensorFlow. We initialize the variables with <code>sess.run(tf.global_variables_initializer())</code>. Then, run the optimizer and get the loss with <code>batch_cost, _ = sess.run([cost, opt], feed_dict=feed)</code>.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">epochs = <span class="number">20</span></div><div class="line">batch_size = <span class="number">200</span></div><div class="line">sess.run(tf.global_variables_initializer())</div><div class="line"><span class="keyword">for</span> e <span class="keyword">in</span> range(epochs):</div><div class="line">    <span class="keyword">for</span> ii <span class="keyword">in</span> range(mnist.train.num_examples//batch_size):</div><div class="line">        batch = mnist.train.next_batch(batch_size)</div><div class="line">        feed = &#123;inputs_: batch[<span class="number">0</span>], targets_: batch[<span class="number">0</span>]&#125;</div><div class="line">        batch_cost, _ = sess.run([cost, opt], feed_dict=feed)</div><div class="line"></div><div class="line">        print(<span class="string">"Epoch: &#123;&#125;/&#123;&#125;..."</span>.format(e+<span class="number">1</span>, epochs),</div><div class="line">              <span class="string">"Training loss: &#123;:.4f&#125;"</span>.format(batch_cost))</div></pre></td></tr></table></figure>
-<h2 id="Checking-out-the-results"><a href="#Checking-out-the-results" class="headerlink" title="Checking out the results"></a>Checking out the results</h2><p>Below I’ve plotted some of the test images along with their reconstructions. For the most part these look pretty good except for some blurriness in some parts.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">fig, axes = plt.subplots(nrows=<span class="number">2</span>, ncols=<span class="number">10</span>, sharex=<span class="keyword">True</span>, sharey=<span class="keyword">True</span>, figsize=(<span class="number">20</span>,<span class="number">4</span>))</div><div class="line">in_imgs = mnist.test.images[:<span class="number">10</span>]</div><div class="line">reconstructed, compressed = sess.run([decoded, encoded], feed_dict=&#123;inputs_: in_imgs&#125;)</div><div class="line"></div><div class="line"><span class="keyword">for</span> images, row <span class="keyword">in</span> zip([in_imgs, reconstructed], axes):</div><div class="line">    <span class="keyword">for</span> img, ax <span class="keyword">in</span> zip(images, row):</div><div class="line">        ax.imshow(img.reshape((<span class="number">28</span>, <span class="number">28</span>)), cmap=<span class="string">'Greys_r'</span>)</div><div class="line">        ax.get_xaxis().set_visible(<span class="keyword">False</span>)</div><div class="line">        ax.get_yaxis().set_visible(<span class="keyword">False</span>)</div><div class="line"></div><div class="line">fig.tight_layout(pad=<span class="number">0.1</span>)</div></pre></td></tr></table></figure>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sess.close()</div></pre></td></tr></table></figure>
-<h2 id="Up-Next"><a href="#Up-Next" class="headerlink" title="Up Next"></a>Up Next</h2><p>We’re dealing with images here, so we can (usually) get better performance using convolution layers. So, next we’ll build a better autoencoder with convolutional layers.</p>
-<p>In practice, autoencoders aren’t actually better at compression compared to typical methods like JPEGs and MP3s. But, they are being used for noise reduction, which you’ll also build.</p>
 
+    
+        <div class="post-tags">
+            <i class="fa fa-tags" aria-hidden="true"></i>
+            <a href="/tags/DeepLearning/">#DeepLearning</a>
         </div>
+    
+
+    <!-- Comments -->
     
 
 </div>
-            
-                
-<div class="post">
-
-    <div class="post-header index">
-        <h1 class="title">
-            <a href="/2015/12/31/first-post/">
-                DigitalOcean's First Post
-            </a>
-        </h1>
-        <div class="post-info">
-            
-                <span class="date">2015-12-31</span>
-            
-            
-            
-                <span class="category">
-                    <a href="/categories/Hexo/">Hexo</a>
-                </span>
-            
-        </div>
-    </div>
-
-    
-        <div class="content">
-            <h2 id="Markdown-goes-here"><a href="#Markdown-goes-here" class="headerlink" title="Markdown goes here."></a>Markdown goes here.</h2><h2 id="This-is-our-first-post"><a href="#This-is-our-first-post" class="headerlink" title="This is our first post!"></a><strong>This is our first post!</strong></h2>
-        </div>
-    
-
-</div>
-            
         </section>
+
     </div>
 </div>
-
-
-
-
-
 
 </div>
 
